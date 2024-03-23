@@ -1,4 +1,3 @@
-#!/usr/bin/env deno
 import ts from "npm:typescript";
 import { readFileSync } from "node:fs";
 
@@ -55,6 +54,7 @@ function extractExportsFromFile(filePath: string): string[] {
 }
 
 const filePath = Deno.args[0];
+
 try {
   const exports = extractExportsFromFile(filePath);
   Deno.stdout.write(new TextEncoder().encode(exports.join("\n")));
