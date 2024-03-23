@@ -4,7 +4,7 @@ JS_FILE_PATH="$1"
 EXPORTS=$(deno run --allow-all https://gist.githubusercontent.com/reggi/0dd44aa8a96cbea4dba9438dfaa0c65a/raw/88fac1befb152c7fa50204963ecc3b7a437e7594/tsexports.ts "$JS_FILE_PATH")
 
 # Process each function name
-echo "$output" | while IFS= read -r FUNC_NAME
+echo "$EXPORTS" | while IFS= read -r FUNC_NAME
 do
   # Skip empty lines or any line that doesn't look like a valid function name
   if [ -z "$FUNC_NAME" ] || [[ ! "$FUNC_NAME" =~ ^[a-zA-Z_][a-zA-Z0-9_]*$ ]]; then
